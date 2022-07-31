@@ -1399,7 +1399,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "web_scraper"
+name = "web_scraper_rs"
 version = "0.1.0"
 dependencies = [
  "reqwest",
