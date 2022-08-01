@@ -3,8 +3,13 @@ Jacob Collins
 Rust Web Scraper
 July 31, 2022
 */
+use std::any::{Any, TypeId};
 use scraper::{Html, Selector};
 
+enum WebResponse {
+    Ok(Vec<Vec<String>>),
+    Err(&'static str)
+}
 /// @param link: String - takes the URL of the webpage to be scraped
 /// @param tags: Vec<String> - takes the tag code to filter the page by
 /// @Result - Vec(tags)<Vec(elements)<String(text)>>, Error code

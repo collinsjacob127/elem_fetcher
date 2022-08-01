@@ -25,3 +25,5 @@ Luminous
 Nocutrnal
 Flamescans
 */
+        // scavenger("https://returnofthemounthuasectmanhwa.com",
+        // ["td>a", "td>i"].to_vec());
