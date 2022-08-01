@@ -6,12 +6,17 @@ July 31, 2022
 use web_scraper_rs::scavenger::scavenger;
 fn main() {
     let test_output = 
-        scavenger("https://www.asurascans.com/comics/1649969363-return-of-the-mount-hua-sect/",
-        ["div.infox>h1.entry-title", "a>span.chapternum", "a>span.chapterdate"].to_vec());
+        // scavenger("https://returnofthemounthuasectmanhwa.com",
+        // [".intro_content>h2", "td>a", "td>i"].to_vec());
+        scavenger("https://flamescans.org/series/heavenly-demon-cultivation-simulation/",
+        ["h1", ".wp-manga-chapter", ".chapter-release-date"].to_vec());
     match test_output {
         Ok(test_output) => {
-            let output_str = [test_output[0][0].to_string(), 
-                test_output[1][0].to_string()].join(" - ");
+            let output_str = 
+                ["Title:", &test_output[0][0], 
+                // "Latest Chapter:", &test_output[1][0],
+                // "Last Updated", &test_output[2][0]
+                ].join(" ");
             println!("{}", output_str);
         }
         Err(test_output) => {
@@ -19,11 +24,3 @@ fn main() {
         }
     }
 }
-/*
-Asura
-Luminous
-Nocutrnal
-Flamescans
-*/
-        // scavenger("https://returnofthemounthuasectmanhwa.com",
-        // ["td>a", "td>i"].to_vec());

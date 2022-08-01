@@ -58,7 +58,6 @@ impl Manga {
         }
     }
     fn generate_elements(&mut self, link: &str) {
-
     // Library of manga sites
     let asura_scans = Domain {
         domain: "https://www.asurascans.com/".to_owned(),
@@ -66,20 +65,6 @@ impl Manga {
         lst_update_tag: "span.chapterdate" .to_owned(),
         title_tag: "h1.entry-title".to_owned(),
     };
-        match scavenger(link,
-        ["td>a", "td>i"].to_vec()) {
-            Ok(test_output) => {
-                let output_str = [test_output[0][0].to_string(), 
-                    test_output[1][0].to_string()].join(" - ");
-                println!("{}", output_str);
-            }
-            Err(test_output) => {
-                panic!("{}", test_output);
-            }
-        }
-    }
-    fn update() {
-
     }
 }
 
