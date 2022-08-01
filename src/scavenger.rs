@@ -1,20 +1,26 @@
 /*
-jacob collins
-rust web scraper
+Jacob Collins
+Rust Web Scraper
 July 31, 2022
 */
+use std::any::{Any, TypeId};
 use scraper::{Html, Selector};
 
+enum WebResponse {
+    Ok(Vec<Vec<String>>),
+    Err(&'static str)
+}
 /// @param link: String - takes the URL of the webpage to be scraped
 /// @param tags: Vec<String> - takes the tag code to filter the page by
-pub fn scavenger(link: &str, tags: Vec<&str>) -> Vec<Vec<String>> {
+pub fn scavenger(link: &str, tags: Vec<&str>) -> std::result::Result<Vec<Vec<String>>, &'static str> {
     let mut out = Vec::new();
     let mut tag_items;
     // Getting full info of web page with reqwest
-    let response = reqwest::blocking::get(link,)
-    .unwrap()
-    .text()
-    .unwrap();
+    let test_response = reqwest::blocking::get(link,);
+    if test_response.is_err() {
+        return Err("Invalid Link");
+    }
+    let response = test_response.unwrap().text().unwrap();
     // Using scraper to parse the response
     let document = Html::parse_document(&response);
     // Loop through each tag and collect text inside all elements in instances of that tag
@@ -29,5 +35,5 @@ pub fn scavenger(link: &str, tags: Vec<&str>) -> Vec<Vec<String>> {
             .for_each(|item| tag_items.push(item));
         out.push(tag_items);
     }
-    return out;
+    return Ok(out);
 }

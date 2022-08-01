@@ -57,6 +57,6 @@ impl Manga {
 mod test {
     #[test]
     fn basics() {
-
+        unimplemented!("oopsie");
     }
 }
