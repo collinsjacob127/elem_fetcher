@@ -1,3 +1,7 @@
-# web_scraper_template_rs
+# Web Scraper
 ---
-Template for scraping web elements in rust
+Library containing a basic web scraping function
+
+Parameters: url, elements to match contents to
+
+Returns: Vec<Vec<elems>>
